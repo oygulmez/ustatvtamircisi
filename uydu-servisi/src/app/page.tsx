@@ -5,6 +5,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ContactForm } from '@/components/contact-form'
 import { BrandLogos } from '@/components/brand-logos'
+import { FloatingButtons } from '@/components/floating-buttons'
 import { 
   Satellite, 
   Phone, 
@@ -292,6 +293,7 @@ export default function HomePage() {
         <CTASection />
       </main>
       <Footer />
+      <FloatingButtons />
     </>
   )
 }

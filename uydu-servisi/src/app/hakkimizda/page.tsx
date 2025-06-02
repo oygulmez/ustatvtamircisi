@@ -1,14 +1,17 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { FloatingButtons } from '@/components/floating-buttons'
 import { 
   Users, 
   Clock, 
   Shield, 
   Star,
   Satellite,
-  CheckCircle
+  CheckCircle,
+  Phone,
+  Wrench
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -192,6 +195,7 @@ export default function HakkimizdaPage() {
         </div>
       </main>
       <Footer />
+      <FloatingButtons />
     </>
   )
 } 

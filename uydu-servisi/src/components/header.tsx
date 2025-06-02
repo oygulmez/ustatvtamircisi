@@ -280,27 +280,33 @@ const renderMenuItem = (item: MenuItem) => {
 const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items && item.items.length > 0) {
     return (
-      <AccordionItem key={item.title} value={item.title}>
-        <AccordionTrigger className="text-base font-medium text-gray-800">
+      <AccordionItem key={item.title} value={item.title} className="border-0">
+        <AccordionTrigger className="text-base font-medium text-gray-800 hover:text-red-600 transition-colors py-4 hover:no-underline">
           {item.title}
         </AccordionTrigger>
-        <AccordionContent>
-          <div className="ml-4 space-y-3">
+        <AccordionContent className="pb-0">
+          <div className="space-y-1">
             {item.items.map((subItem) => (
               <a
                 key={subItem.title}
                 href={subItem.url}
-                className="block space-y-1 rounded-md p-2 hover:bg-gray-100"
+                className="group flex items-start gap-3 rounded-xl p-3 hover:bg-red-50 transition-all duration-200"
               >
-                <div className="flex items-center gap-2">
-                  {subItem.icon}
-                  <span className="text-sm font-medium text-gray-800">{subItem.title}</span>
+                <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-red-100 transition-colors">
+                  <div className="h-4 w-4 text-gray-600 group-hover:text-red-600">
+                    {subItem.icon}
+                  </div>
                 </div>
-                {subItem.description && (
-                  <p className="text-xs text-gray-600">
-                    {subItem.description}
-                  </p>
-                )}
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium text-gray-800 group-hover:text-red-600 transition-colors">
+                    {subItem.title}
+                  </div>
+                  {subItem.description && (
+                    <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                      {subItem.description}
+                    </p>
+                  )}
+                </div>
               </a>
             ))}
           </div>
@@ -313,7 +319,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
     <div key={item.title}>
       <a
         href={item.url}
-        className="block py-2 text-base font-medium text-gray-800 hover:text-red-600"
+        className="block py-4 text-base font-medium text-gray-800 hover:text-red-600 transition-colors"
       >
         {item.title}
       </a>
@@ -374,36 +380,36 @@ export function Header() {
               </a>
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="border-gray-300">
-                    <Menu className="size-4" />
+                  <Button variant="outline" size="icon" className="border-0 shadow-none hover:bg-red-50 hover:text-red-600 transition-colors">
+                    <Menu className="size-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent className="overflow-y-auto bg-white">
-                  <SheetHeader>
-                    <SheetTitle>
+                <SheetContent className="overflow-y-auto bg-white border-0 shadow-2xl w-full sm:w-80">
+                  <SheetHeader className="border-0 pb-6">
+                    <SheetTitle className="text-left">
                       <a href="/" className="flex items-center gap-2">
                         <Logo width={160} />
                       </a>
                     </SheetTitle>
                   </SheetHeader>
-                  <div className="my-6 flex flex-col gap-6">
+                  <div className="flex flex-col gap-0">
                     <Accordion type="single" collapsible className="w-full">
                       {MENU_ITEMS.map((item) => renderMobileMenuItem(item))}
                     </Accordion>
                     
-                    <div className="space-y-2 border-t pt-4">
+                    <div className="space-y-1 pt-6">
                       {TOPBAR_LINKS.map((link) => (
                         <a
                           key={link.name}
                           href={link.url}
-                          className="block py-2 text-sm text-gray-600 hover:text-red-600"
+                          className="block py-3 text-sm text-gray-600 hover:text-red-600 transition-colors font-medium"
                         >
                           {link.name}
                         </a>
                       ))}
                     </div>
                     
-                    <div className="space-y-3 border-t pt-4">
+                    <div className="space-y-3 pt-6">
                       <ContactButtons isMobile />
                     </div>
                   </div>
