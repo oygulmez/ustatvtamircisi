@@ -97,12 +97,12 @@ const HeroSection = () => (
     </div>
     
     {/* Content */}
-    <div className="relative z-10 min-h-[700px] flex items-center py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div className="relative z-10 min-h-[600px] md:min-h-[700px] flex items-center py-8 md:py-12">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           
           {/* Left Column - Main Content */}
-          <div className="space-y-6 text-center lg:text-left">
+          <div className="space-y-4 md:space-y-6 text-center lg:text-left">
             
             {/* Badge */}
             <div className="hidden sm:inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium lg:justify-start justify-center">
@@ -111,29 +111,31 @@ const HeroSection = () => (
             </div>
             
             {/* Heading */}
-            <h1 className="text-hero font-bold text-white leading-tight" style={{ lineHeight: '55px' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight lg:leading-none px-2 sm:px-0">
               <span className="bg-gradient-to-r from-red-500 to-red-400 bg-clip-text text-transparent">
-                Garantili
-              </span> ve<br />
-              Faturalı Hizmet
+                2 Yıl Garantili
+              </span>{" "}
+              <span className="whitespace-nowrap">ve</span>
+              <br />
+              <span>Faturalı Hizmet</span>
             </h1>
             
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
               Usta TV Tamircisi olarak 2 yıl garantili ve faturalı hizmet sunuyoruz.
             </p>
             
             {/* Buttons */}
-            <div className="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 justify-center lg:justify-start px-2 sm:px-0">
               <Button asChild className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                <Link href="/hizmetler" className="flex items-center gap-2">
+                <Link href="/hizmetler" className="flex items-center gap-2 justify-center">
                   <Wrench className="w-4 h-4" />
                   Hizmetlerimiz
                 </Link>
               </Button>
               
               <Button asChild className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-xl transition-all duration-300">
-                <Link href="/iletisim" className="flex items-center gap-2">
+                <Link href="/iletisim" className="flex items-center gap-2 justify-center">
                   <Phone className="w-4 h-4" />
                   İletişim
                 </Link>
@@ -153,7 +155,7 @@ const HeroSection = () => (
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">
             <ContactForm />
           </div>
 
